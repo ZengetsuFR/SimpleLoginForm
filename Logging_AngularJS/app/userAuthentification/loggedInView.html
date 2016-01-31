@@ -1,0 +1,16 @@
+﻿<div  class="login-page" ng-controller="loggedInCtrl as vm">
+    <div class="form">
+        <hr />  
+        <form class="login-form" name="registerForm">
+            <div ng-show="vm.isLoggedIn">
+                <p>Bienvenu {{vm.message}}</p>
+                <img src="../../img/matrixNEO.gif" width="270px" />
+        <hr/>
+                <button ng-click="vm.logOut()">Se déconnecter</button>
+            </div>
+            <p class="error" ng-show="!vm.isLoggedIn">NON AUTHENTIFIE  
+                <button ng-click="vm.home()">Retour</button>
+            </p>
+        </form>
+    </div>
+</div>

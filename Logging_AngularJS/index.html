@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="fr-fr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Technical Test</title>
+	<meta charset="utf-8" />
+
+    <!--CSS-->
+    <link href="Content/bootstrap-comos.min.css" rel="stylesheet" />
+    <link href="Content/style.css" rel="stylesheet" />
+    
+    <!--Librairie-->
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="Scripts/angular-resource.js"></script>
+
+    <!--Application-->
+    <script src="app/app.js"></script>
+
+    <!--Controllers-->
+    <script src="app/userAuthentification/HomeCtrl.js"></script>
+    <script src="app/userAuthentification/registerCtrl.js"></script>
+    <script src="app/userAuthentification/loggedInCtrl.js"></script>
+
+    <!--Service-->
+    <script src="common/web.api.services.js"></script>
+    <script src="common/authentificationFactory.js"></script>
+    <script src="common/currentUser.js"></script>
+    <script src="common/validationFormulaire.js"></script>
+
+
+</head>
+<body ng-app="TechnicalTest">
+    <div ng-view></div>
+</body>
+</html>
