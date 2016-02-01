@@ -24,18 +24,27 @@
                        ng-model="vm.user.email" 
                        ng-minlength="5" />
                 
-                <input name="password" 
-                       type="password" 
-                       placeholder="Mot de passe *" 
-                       ng-model="vm.user.password" />
+                <span data-tooltip
+                      aria-haspopup="true"
+                      title="au moins une lettre majuscule, minuscule, spécial et chiffre">
 
-                <input name="confirmPassword" 
-                       type="password" 
-                       placeholder="Confirmer mot de passe *" 
-                       ng-model="vm.user.confirmPassword" />
-                
-                <button ng-click="vm.register()">Enregister</button>
+                    <input name="password"
+                           type="password"
+                           placeholder="Mot de passe *"
+                           ng-model="vm.user.password" />
+                </span>
+                    <input name="confirmPassword"
+                           type="password"
+                           placeholder="Confirmer mot de passe *"
+                           ng-model="vm.user.confirmPassword" />
+
+                <button ng-click="vm.CheckGoogleCaptcha()">Enregister</button>
                 <p class="message">Déjà inscrit ? <a href="#home">Se connecter</a></p>
-            </form>
+                </form>
+                    <!--
+                    <hr />
+                        <div class="g-recaptcha" data-sitekey="6LfJFxcTAAAAAM0JGs8kohmNjKLUGGYtNZVM-dHK"></div>
+                    <hr />
+                    -->
         </div>
 </div>

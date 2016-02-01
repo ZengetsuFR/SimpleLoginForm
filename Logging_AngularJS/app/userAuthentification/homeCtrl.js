@@ -5,7 +5,7 @@
 
     function homeCtrl($location, $window, authentificationFactory, validateForm) {
         var vm = this;
-        
+
         vm.message = "";
         vm.user = {
             email: "",
@@ -16,6 +16,7 @@
           Connecter l'utilisateur
         */
         vm.loggedIn = function () {
+
             var checkEmail = validateForm.checkEmail(vm.user.email);
 
             var isValid = (checkEmail.isValid && vm.user.password.length > 0);

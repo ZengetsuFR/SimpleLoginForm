@@ -8,6 +8,10 @@
         var vm = this;
         vm.message = "";
         vm.isValid = true;
+        
+        /*ToDo - Google Captcha 
+        cle public : vm.publicKeyForGoogleCaptcha = "6LclFRcTAAAAAF_kWlktpA6nEAym_FVe2KhO5ZEn";
+        ajouter a vm.user - "grecaptcharesponse": ""*/
 
         vm.user = {
             firstName: "",
@@ -21,9 +25,21 @@
         Verification mot de passe via regExp
         Appel de l'apiweb
         */
- 
+        vm.CheckGoogleCaptcha = function () {
+            
+            /*ToDo - Google Captcha*/
+            /*
+            if (grecaptcha.getResponse() === "") { 
+                vm.message = "Merci de renseigner le captcha avant de valider!";
+            }
+            else*/
+            vm.register();
+        }
+
         vm.register = function () {
             vm.isValid = true;
+            /*ToDo - Pour google Captcha*/
+            //vm.user.grecaptcharesponse = grecaptcha.getResponse();
 
             //Verifier Nom et Prenom
             var checkValid = validateForm.checkInput(vm.user);

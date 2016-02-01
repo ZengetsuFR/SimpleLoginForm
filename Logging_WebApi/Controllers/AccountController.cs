@@ -17,6 +17,9 @@ using Logging_WebApi.Models;
 using Logging_WebApi.Providers;
 using Logging_WebApi.Results;
 using System.Web.Http.Cors;
+using Newtonsoft.Json;
+using System.Net;
+using Recaptcha;
 
 namespace Logging_WebApi.Controllers
 {
@@ -330,18 +333,40 @@ namespace Logging_WebApi.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new ApplicationUser() { UserName = model.Email.Trim(), Email = model.Email.Trim(),
-                FirstName = model.FirstName.Trim(), LastName = model.LastName.Trim()
-            };
+            /*ToDo - Pour google Captcha
+            HttpRequestMessage response = HttpContext.Current.Items["g-recaptcha-responsee"] as HttpRequestMessage;
 
-            IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+            //secret that was generated in key value pair
+            const string secret = "6LfJFxcTAAAAADFvQVhhGOtSLCyIcs7Yo1GrLFfL";
 
-            if (!result.Succeeded)
+            var client = new WebClient();
+            var reply =
+                client.DownloadString(
+                    string.Format("https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}", secret, response));
+
+            var captchaResponse = JsonConvert.DeserializeObject<Recaptcha.RecaptchaResponse>(reply);
+
+            //when response is false check for the error message
+            if (!captchaResponse.IsValid)
             {
-                return GetErrorResult(result);
-            }
+                var error = captchaResponse.ErrorMessage;
 
-            return Ok();
+                return GetErrorResult(IdentityResult.Failed(error));
+            }
+            */
+                var user = new ApplicationUser() { UserName = model.Email.Trim(), Email = model.Email.Trim(),
+                    FirstName = model.FirstName.Trim(), LastName = model.LastName.Trim()
+                };
+
+                IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+
+
+                if (!result.Succeeded)
+                {
+                    return GetErrorResult(result);
+                }
+
+                return Ok();
         }
 
         // POST api/Account/RegisterExternal
