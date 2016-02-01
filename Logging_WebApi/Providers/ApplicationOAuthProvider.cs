@@ -14,7 +14,7 @@ using System.Web.Http.Cors;
 
 namespace Logging_WebApi.Providers
 {
-    [EnableCorsAttribute("http://localhost:63995", "*", "*")]
+    [EnableCorsAttribute("http://simpleloginform.azurewebsites.net", "*", "*")]
     public class ApplicationOAuthProvider : OAuthAuthorizationServerProvider
     {
         private readonly string _publicClientId;
@@ -38,7 +38,7 @@ namespace Logging_WebApi.Providers
             ApplicationUser user = await userManager.FindAsync(context.UserName, context.Password);
 
 
-            context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] {"http://localhost:63995"});
+            context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "http://simpleloginform.azurewebsites.net" });
             FirstName = user.FirstName;
             LastName = user.LastName;
             if (user == null)

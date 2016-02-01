@@ -3,6 +3,6 @@
     angular
         .module("web.api.services", ["ngResource"])
         .constant("appSettings", {
-            serverPath: "http://localhost:63918"
+            serverPath: "https://microsoft-apiappd4677ce101bd4ae5988f568591e022c0.azurewebsites.net"
         });
 }());

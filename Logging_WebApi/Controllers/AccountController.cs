@@ -20,7 +20,7 @@ using System.Web.Http.Cors;
 
 namespace Logging_WebApi.Controllers
 {
-    [EnableCorsAttribute("http://localhost:63995", "*","*")]
+    [EnableCorsAttribute("http://simpleloginform.azurewebsites.net", "*","*")]
     [Authorize]
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController

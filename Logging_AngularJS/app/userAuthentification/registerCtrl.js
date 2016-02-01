@@ -50,7 +50,7 @@
             }
 
             if (vm.isValid) {
-                console.log(vm.user)
+              
                 authentificationFactory.registration.registerUser(vm.user, function (data) {
                     vm.isValid = true;
                     vm.message = "...Enregistrement OK...";
