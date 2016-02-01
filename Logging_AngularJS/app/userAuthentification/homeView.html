@@ -1,0 +1,14 @@
+﻿<div class="login-page" ng-controller="homeCtrl as vm">
+    <div class="form">
+        <hr />
+        <div role="alert">
+            <p class="error">{{vm.message}}</p>
+        </div>
+        <form class="login-form">
+            <input type="email" placeholder="e-mail" ng-model="vm.user.email"/>
+            <input type="password" placeholder="mot de passe" ng-model="vm.user.password"/>
+            <button ng-click="vm.loggedIn()">Se connecter</button>
+            <p class="message">Pas encore inscrit ? <a href="" ng-click="vm.registerView()">Créer un compte</a></p>  
+        </form>
+    </div>
+</div>

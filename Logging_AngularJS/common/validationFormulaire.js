@@ -47,21 +47,25 @@
         var checkPassword = function (user) {
             var isValid = true;
             var mesAlertes = {
-                "[a-zA-Z\d\s:]{6,}": "mot de passe : minimum 6 caractères",
+                "[a-zA-Z0-9\d\s:]{6,}": "mot de passe : minimum 6 caractères",
                 "[^A-Za-z0-9]{1,}": "mot de passe : minimum 1 caractères non alphanumérique",
-                "[0-9]+": "mot de passe : minium  1 chiffre",
-                "[A-Z]+": "mot de passe : minium 1 lettre en majuscule",
-                "[a-z]+": "mot de passe : minium 1 lettre en minuscule",
-                "[^\S+$]": "mot de passe : Ne pas saisir d'espace"
+                "[0-9]+": "mot de passe : mininum  1 chiffre",
+                "[A-Z]+": "mot de passe : mininum 1 lettre en majuscule",
+                "[a-z]+": "mot de passe : mininum 1 lettre en minuscule"
             }
-            if (user.password != user.confirmPassword) {
+            var space = " ";
+            if (user.password.indexOf(space) > 0){
+                message = "Ne pas saisir d'espace";
+                isValid = false            
+            }else if (user.password != user.confirmPassword) {
                 isValid = false;
                 message = "Erreur dans la confirmation du mot de passe";
             }
             else {
-                for (var key in mesAlertes) {
-                    var rule = RegExp(key);
+                var rule;
 
+                for (var key in mesAlertes) {
+                    rule = RegExp(key);
                     if (!rule.test(user.password)) {
                         message = mesAlertes[key];
                         isValid = false;
@@ -73,7 +77,6 @@
                 isValid: isValid,
                 message: message
             }
-
             return resultat;
         }
 

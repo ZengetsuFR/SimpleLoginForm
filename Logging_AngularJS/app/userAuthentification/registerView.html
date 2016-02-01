@@ -1,0 +1,41 @@
+﻿<div class="login-page" ng-controller="registerCtrl as vm">
+    <div class="form">
+        <hr />
+        <div role="alert">
+            <p class="error">{{vm.message}}</p>
+        </div>
+            <form class="login-form" name="registerForm">
+                
+                 <input name="firstName" 
+                   type="text" 
+                   placeholder="Prénom *" 
+                   ng-model="vm.user.firstName"
+                   ng-minlength="3"/>
+                
+                <input name="lastName"
+                       type="text" 
+                       placeholder="Nom *" 
+                       ng-model="vm.user.lastName" 
+                       ng-minlength="3" />
+
+                <input name="email"
+                       type="email" 
+                       placeholder="E-mail *" 
+                       ng-model="vm.user.email" 
+                       ng-minlength="5" />
+                
+                <input name="password" 
+                       type="password" 
+                       placeholder="Mot de passe *" 
+                       ng-model="vm.user.password" />
+
+                <input name="confirmPassword" 
+                       type="password" 
+                       placeholder="Confirmer mot de passe *" 
+                       ng-model="vm.user.confirmPassword" />
+                
+                <button ng-click="vm.register()">Enregister</button>
+                <p class="message">Déjà inscrit ? <a href="#home">Se connecter</a></p>
+            </form>
+        </div>
+</div>

@@ -32,7 +32,7 @@ describe("Verification du mot de passe", function () {
         controller.user.firstName = "joel";
         controller.user.lastName = "bragance";
         controller.user.email = "joelbragance@domaine.fr";
-        controller.user.password = "12345";
+        controller.user.password = "aze";
         controller.user.confirmPassword = controller.user.password;
         var checkValid = controller.register();
         expect(controller.isValid).toBe(false, controller.message + " : " + controller.user.password);
@@ -44,7 +44,7 @@ describe("Verification du mot de passe", function () {
         controller.user.firstName = "joel";
         controller.user.lastName = "bragance";
         controller.user.email = "joelbragance@domaine.fr";
-        controller.user.password = "123456Aa";
+        controller.user.password = "Janvier2016";
         controller.user.confirmPassword = controller.user.password;
         var result = controller.register()
         expect(controller.isValid).toBe(false, controller.message + " : " + controller.user.password);
@@ -56,7 +56,7 @@ describe("Verification du mot de passe", function () {
         controller.user.firstName = "joel";
         controller.user.lastName = "bragance";
         controller.user.email = "joelbragance@domaine.fr";
-        controller.user.password = "@123456a";
+        controller.user.password = "janvier_2016";
         controller.user.confirmPassword = controller.user.password;
         var result = controller.register()
         expect(controller.isValid).toBe(false, controller.message + " : " + controller.user.password);
@@ -68,7 +68,7 @@ describe("Verification du mot de passe", function () {
         controller.user.firstName = "joel";
         controller.user.lastName = "bragance";
         controller.user.email = "joelbragance@domaine.fr";
-        controller.user.password = "123456a@A";
+        controller.user.password = "JANVIER_2016";
         controller.user.confirmPassword = controller.user.password;
         var result = controller.register()
         expect(controller.isValid).toBe(false, controller.message + " : " + controller.user.password);
