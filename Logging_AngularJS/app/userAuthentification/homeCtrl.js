@@ -1,9 +1,9 @@
 ﻿(function () {
     "use strict";
     var app = angular.module("TechnicalTest");
-    app.controller("homeCtrl", ["$location", "$window","authentificationFactory","validationFormulaire", homeCtrl]);
+    app.controller("homeCtrl", ["$location", "$window", "authentificationFactory", "validateForm", homeCtrl]);
 
-    function homeCtrl($location, $window,authentificationFactory,validationFormulaire) {
+    function homeCtrl($location, $window, authentificationFactory, validateForm) {
         var vm = this;
         
         vm.message = "";
@@ -16,7 +16,7 @@
           Connecter l'utilisateur
         */
         vm.loggedIn = function () {
-            var checkEmail = validationFormulaire.checkEmail(vm.user.email);
+            var checkEmail = validateForm.checkEmail(vm.user.email);
 
             var isValid = (checkEmail.isValid && vm.user.password.length > 0);
 
@@ -35,6 +35,7 @@
                             lastName: data.LastName,
                             isLoggedIn: true
                         };
+                        //On garde le token dans le cache du navigateur
                         $window.sessionStorage["userInfo"] = JSON.stringify(userInfo);
                         $location.path("/loggedIn");
                     },

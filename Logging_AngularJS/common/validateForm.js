@@ -2,9 +2,9 @@
     "use strict";
     angular
         .module("web.api.services")
-        .factory("validationFormulaire",validationFormulaire);
+        .factory("validateForm", validateForm);
 
-    function validationFormulaire() {
+    function validateForm() {
         var rule;
         var resultat = {};
         var message;

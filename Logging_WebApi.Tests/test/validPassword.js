@@ -6,7 +6,7 @@
 /// <reference path="../../logging_angularjs/common/web.api.services.js" />
 /// <reference path="../../logging_angularjs/common/currentuser.js" />
 /// <reference path="../../logging_angularjs/common/authentificationfactory.js" />
-/// <reference path="../../logging_angularjs/common/validationformulaire.js" />
+/// <reference path="../../logging_angularjs/common/validateForm.js" />
 /// <reference path="../../logging_angularjs/app/userauthentification/registerctrl.js" />
 
 describe("Verification du mot de passe", function () {
