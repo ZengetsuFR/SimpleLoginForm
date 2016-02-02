@@ -67,7 +67,7 @@
             }
 
             if (vm.isValid) {
-                vm.message = "Validation en cours...";
+                vm.message = "Authentification en cours...";
                 vm.inProcess = true;
                 authentificationFactory.registration.registerUser(vm.user, function (data) {
                     vm.isValid = true;
