@@ -5,6 +5,7 @@
 
     function homeCtrl($location, $window, authentificationFactory, validateForm) {
         var vm = this;
+        vm.inProcess = false;
 
         vm.message = "";
         vm.user = {
@@ -22,8 +23,12 @@
             var isValid = (checkEmail.isValid && vm.user.password.length > 0);
 
             if (isValid) {
+
+                vm.message = "Validation en cours...";
+                vm.inProcess = true;
                 vm.user.grant_type = "password";
                 vm.user.username = vm.user.email;
+
                 authentificationFactory.login.loginUser(vm.user,
                     function (data) {
                         vm.message = "";
@@ -43,12 +48,9 @@
                     function (response) {
                         vm.password = "";
                         vm.message = "";
-                        if (response.data.exceptionMessage)
-                            vm.message += response.data.exceptionMessage;
-                        if (response.data.error) {
-                            vm.message += response.data.error_description;
-                        }
+                        vm.message = "Erreur lors de la validation";
                     })
+                vm.inProcess = false;
             }
             else vm.message = "Saisie incorrecte!";
         }

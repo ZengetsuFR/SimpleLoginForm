@@ -38,7 +38,7 @@
                            placeholder="Confirmer mot de passe *"
                            ng-model="vm.user.confirmPassword" />
 
-                <button ng-click="vm.CheckGoogleCaptcha()">Enregister</button>
+                <button ng-disabled="vm.inProcess" ng-click="vm.CheckGoogleCaptcha()">Enregister</button>
                 <p class="message">Déjà inscrit ? <a href="#home">Se connecter</a></p>
                 </form>
                     <!--

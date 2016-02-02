@@ -8,6 +8,7 @@
         var vm = this;
         vm.message = "";
         vm.isValid = true;
+        vm.inProcess = false;
         
         /*ToDo - Google Captcha 
         cle public : vm.publicKeyForGoogleCaptcha = "6LclFRcTAAAAAF_kWlktpA6nEAym_FVe2KhO5ZEn";
@@ -66,7 +67,8 @@
             }
 
             if (vm.isValid) {
-              
+                vm.message = "Validation en cours...";
+                vm.inProcess = true;
                 authentificationFactory.registration.registerUser(vm.user, function (data) {
                     vm.isValid = true;
                     vm.message = "...Enregistrement OK...";
@@ -75,14 +77,9 @@
                 function (response) {
                     vm.isValid = false;
                     vm.message = response.statusText + "\r\n";
-                    if (response.data.exceptionMessage)
-                        vm.message += response.data.exceptionMessage;
-                    if (response.data.modelState) {
-                        for (var key in response.data.modelState) {
-                            vm.message += response.data.modelState[key] + "\r\n";
-                        }
-                    }
+                    vm.message = "Erreur lors de la validation";
                 });
+                vm.inProcess = false;
             }
         }
     }
